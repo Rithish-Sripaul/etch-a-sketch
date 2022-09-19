@@ -1,6 +1,7 @@
 "use strict";
 
 const canvas = document.querySelector(".canvas");
+let pixelColor = "#000";
 
 function clearCanvas() {
   while (canvas.childElementCount > 0) {
@@ -8,7 +9,7 @@ function clearCanvas() {
   }
 }
 
-function createCnavas(pixelCount, num) {
+function createCanvas(pixelCount, num) {
   // Removing the child elements of the old Canvas
   clearCanvas();
   for (let i = 0; i < pixelCount; i++) {
@@ -25,29 +26,35 @@ function createCnavas(pixelCount, num) {
   }
 
   const pixels = document.querySelectorAll(".pixel");
-
   pixels.forEach((pixel) => {
     pixel.addEventListener("mouseover", () => {
-      pixel.style.backgroundColor = "#000";
+      pixel.style.backgroundColor = pixelColor;
     });
   });
 }
 
-createCnavas(16, 620 / 16);
+createCanvas(16, 620 / 16);
 
-const btnCraeteCanvas = document.querySelector(".create");
+const btnCreateCanvas = document.querySelector(".create");
 const btnClearCanvas = document.querySelector(".clear");
-const pixelCount = document.querySelector("input");
+const colorPicker = document.querySelector(".color--picker");
+const pixelCount = document.querySelector(".pixel--input");
 
-btnCraeteCanvas.addEventListener("click", () => {
-  createCnavas(parseInt(pixelCount.value), 620 / pixelCount.value);
+btnCreateCanvas.addEventListener("click", () => {
+  createCanvas(parseInt(pixelCount.value), 620 / pixelCount.value);
 });
 
 btnClearCanvas.addEventListener("click", () => {
   clearCanvas();
+
   if (pixelCount.value == 0) {
-    createCnavas(16, 620 / 16);
+    createCanvas(16, 620 / 16);
   } else {
-    createCnavas(parseInt(pixelCount.value), 620 / pixelCount.value);
+    createCanvas(parseInt(pixelCount.value), 620 / pixelCount.value);
   }
+});
+
+colorPicker.addEventListener("input", () => {
+  colorPicker.style.backgroundColor = colorPicker.value;
+  pixelColor = colorPicker.value;
 });
