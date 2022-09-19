@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+  background-color: #ccc;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel-row {
+  display: flex;
+  width: 100%;
+}
+
+.pixel {
+  background-color: white;
+}
+
+.canvas {
+  width: 620px;
+  height: 620px;
+  background-color: grey;
+}
