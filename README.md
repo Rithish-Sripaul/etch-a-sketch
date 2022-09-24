@@ -1,5 +1,7 @@
 # Etch A Sketch
 
+Live Page: https://rithish-sripaul.github.io/etch-a-sketch/
+
 ## Overview
 
 This a simple website that allows the user to draw on a canvas of different pixel densities.
